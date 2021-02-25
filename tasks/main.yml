@@ -58,4 +58,4 @@
   copy:
     dest: /home/{{ grafana_kiosk_user }}/grafana-kiosk/
     owner: "{{ grafana_kiosk_user }}"
-    src: grafana-kiosk-config.yaml
+    src: "{{ grafana_kiosk_config_yaml }}"

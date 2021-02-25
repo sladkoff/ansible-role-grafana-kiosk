@@ -13,3 +13,5 @@ grafana_kiosk_profile_graphical_startup: "if [[ -z $DISPLAY ]] && [[ $(tty) = /d
 
 grafana_kiosk_user: pi
 
+grafana_kiosk_config_yaml: grafana-kiosk-config.yaml
+
