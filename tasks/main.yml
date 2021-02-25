@@ -56,6 +56,6 @@
 
 - name: Copy grafana-kiosk configuration file
   copy:
-    dest: /home/{{ grafana_kiosk_user }}/grafana-kiosk/
+    dest: /home/{{ grafana_kiosk_user }}/grafana-kiosk/grafana-kiosk-config.yaml
     owner: "{{ grafana_kiosk_user }}"
     src: "{{ grafana_kiosk_config_yaml }}"
