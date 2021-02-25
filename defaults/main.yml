@@ -9,5 +9,7 @@ grafana_kiosk_dependencies:
   - xdotool
   - screen
 
+grafana_kiosk_profile_graphical_startup: "if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi"
+
 grafana_kiosk_user: pi
 
