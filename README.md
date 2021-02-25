@@ -19,9 +19,7 @@ Role Variables
 Example Playbook
 ----------------
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+Here's the [playbook I use at home](https://github.com/sladkoff/ansible-playbook-grafana-kiosk) :house:
 
 License
 -------
