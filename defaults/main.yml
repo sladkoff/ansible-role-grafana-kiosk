@@ -1,0 +1,13 @@
+---
+
+grafana_kiosk_dependencies:
+  - xserver-xorg
+  - xinit
+  - openbox
+  - Chrome
+  - unclutter
+  - xdotool
+  - screen
+
+grafana_kiosk_user: pi
+

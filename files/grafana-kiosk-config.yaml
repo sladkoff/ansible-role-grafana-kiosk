@@ -1,0 +1,12 @@
+general:
+  kiosk-mode: full
+  autofit: true
+  lxde: false
+
+target:
+  login-method: local
+  username: pi-grafana-kiosk
+  password: pi-grafana-kiosk-password
+  playlist: true
+  URL: https://grafana.sldk.de/playlists/play/1?kiosk&autofitpanels
+  ignore-certificate-errors: false

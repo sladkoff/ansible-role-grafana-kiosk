@@ -1,0 +1,43 @@
+---
+- name: Install grafana-kiosk dependencies
+  package:
+    name: "{{ grafana_kiosk_dependencies }}"
+    state: present
+
+- name: "Configure auto-login for user {{ grafana_kiosk_user }} on tty1"
+  copy:
+    dest: /etc/systemd/system/getty@tty1.service.d/override.conf
+    src: getty@tty1.service
+    mode: '664'
+
+- name: "Enable auto-login for user {{ grafana_kiosk_user }} on tty1"
+  systemd:
+    daemon_reload: true
+    name: getty@tty1
+    enabled: true
+
+- name: Create openbox autostart directory
+  file:
+    path: /home/{{ grafana_kiosk_user }}/.config/openbox/
+    state: directory
+
+- name: Create openbox autostart configuration
+  copy:
+    dest: /home/{{ grafana_kiosk_user }}/.config/openbox/autostart
+    src: openbox-autostart
+
+- name: Create grafana-kiosk directory
+  file:
+    path: /home/{{ grafana_kiosk_user }}/grafana-kiosk/
+    state: directory
+
+- name: Download grafana-kiosk
+  get_url:
+    dest: /home/{{ grafana_kiosk_user }}/grafana-kiosk/
+    url: https://github.com/grafana/grafana-kiosk/releases/download/v1.0.2/grafana-kiosk.linux.armv7
+    mode: '744'
+
+- name: Copy grafana-kiosk configuration file
+  copy:
+    dest: /home/{{ grafana_kiosk_user }}/grafana-kiosk/
+    src: grafana-kiosk-config.yaml
