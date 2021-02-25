@@ -4,7 +4,7 @@ grafana_kiosk_dependencies:
   - xserver-xorg
   - xinit
   - openbox
-  - Chrome
+  - chromium-browser
   - unclutter
   - xdotool
   - screen
