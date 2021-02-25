@@ -1,7 +1,7 @@
 ansible-role-grafana-kiosk
 =========
 
-Installs [grafana-kiosk]() on a Raspberry Pi.
+Installs [grafana-kiosk](https://github.com/grafana/grafana-kiosk) on a Raspberry Pi.
 
 Requirements
 ------------
