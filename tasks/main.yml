@@ -44,15 +44,18 @@
 - name: Create grafana-kiosk directory
   file:
     path: /home/{{ grafana_kiosk_user }}/grafana-kiosk/
+    owner: "{{ grafana_kiosk_user }}"
     state: directory
 
 - name: Download grafana-kiosk
   get_url:
     dest: /home/{{ grafana_kiosk_user }}/grafana-kiosk/
     url: https://github.com/grafana/grafana-kiosk/releases/download/v1.0.2/grafana-kiosk.linux.armv7
+    owner: "{{ grafana_kiosk_user }}"
     mode: '744'
 
 - name: Copy grafana-kiosk configuration file
   copy:
     dest: /home/{{ grafana_kiosk_user }}/grafana-kiosk/
+    owner: "{{ grafana_kiosk_user }}"
     src: grafana-kiosk-config.yaml
