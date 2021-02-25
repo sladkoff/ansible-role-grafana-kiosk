@@ -5,9 +5,9 @@
     state: present
 
 - name: "Configure auto-login for user {{ grafana_kiosk_user }} on tty1"
-  copy:
+  template:
     dest: /etc/systemd/system/getty@tty1.service.d/override.conf
-    src: getty@tty1.service
+    src: getty@tty1.service.j2
     mode: '664'
 
 - name: "Enable auto-login for user {{ grafana_kiosk_user }} on tty1"
@@ -22,9 +22,9 @@
     state: directory
 
 - name: Create openbox autostart configuration
-  copy:
+  template:
     dest: /home/{{ grafana_kiosk_user }}/.config/openbox/autostart
-    src: openbox-autostart
+    src: openbox-autostart.j2
 
 - name: Create grafana-kiosk directory
   file:
